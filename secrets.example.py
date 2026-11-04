@@ -16,7 +16,7 @@ NTP_HOST = None                  # None = pool.ntp.org; a local NTP server works
 
 # RadioHead address of this gateway. Every gateway needs its own address, different
 # from every sensor node. A node uses this gateway when its SERVER_ADDRESS matches.
-GATEWAY_ADDRESS = x
+GATEWAY_ADDRESS = x # Change this to whatever address you would like ot give your gateway (1-255)
 
 # Topics become <TOPIC_PREFIX>/gateway<GATEWAY_ADDRESS>/rx, /status and /availability.
 TOPIC_PREFIX = "homemade/loralan"
