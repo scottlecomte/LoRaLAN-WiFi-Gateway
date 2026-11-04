@@ -64,13 +64,13 @@ The XIAO's soldered pin headers are the mount: they press into two rows of holes
 
 ## MQTT
 
-Topics, with the defaults (`TOPIC_PREFIX = "homemade/loralan"`, `GATEWAY_ADDRESS = 5`):
+Topics, with the defaults (`TOPIC_PREFIX = "loralan"`, `GATEWAY_ADDRESS = 5`):
 
 | Topic | Retained | Contents |
 |---|---|---|
-| `homemade/loralan/gateway5/rx` | no | One message per received packet |
-| `homemade/loralan/gateway5/status` | yes | Counters and health JSON, every 60 s |
-| `homemade/loralan/gateway5/availability` | yes | `online` on connect, `offline` as the last will |
+| `loralan/gateway5/rx` | no | One message per received packet |
+| `loralan/gateway5/status` | yes | Counters and health JSON, every 60 s |
+| `loralan/gateway5/availability` | yes | `online` on connect, `offline` as the last will |
 
 Example `rx` message (made-up values). It is the same envelope the Ethernet bridge sends on its WebSocket, with `gw` added:
 
@@ -81,7 +81,7 @@ Example `rx` message (made-up values). It is the same envelope the Ethernet brid
  "rcv_ts": 1790000000}
 ```
 
-`message` is the node's packet as UTF-8 text (base64 if it isn't valid UTF-8). In Node-RED, an `mqtt in` node on `homemade/loralan/+/rx` (or your prefix) with JSON output can feed the same parsing flow you use for the bridge WebSocket.
+`message` is the node's packet as UTF-8 text (base64 if it isn't valid UTF-8). In Node-RED, an `mqtt in` node on `loralan/+/rx` (or your prefix) with JSON output can feed the same parsing flow you use for the bridge WebSocket.
 
 The `status` message has uptime, packets per node (`rx`), duplicates, the last RSSI / SNR / age per node (`last`), ACK counters (`aok`, `alate`, ...), publish and queue counters, Wi-Fi RSSI, Wi-Fi / MQTT reconnect counts and the last error. A copy is written to `/gateway_status.txt` on the board every 30 minutes.
 
@@ -96,7 +96,7 @@ Site settings go in `secrets.py` on the board (copy `secrets.example.py`):
 | `MQTT_USER` / `MQTT_PASS` | None | Set both if your broker needs a login |
 | `NTP_HOST` | None | None = pool.ntp.org |
 | `GATEWAY_ADDRESS` | 5 | This gateway's RadioHead address. Must be unique. Nodes that should use this gateway set `SERVER_ADDRESS` to it |
-| `TOPIC_PREFIX` | `homemade/loralan` | Topics are `<prefix>/gateway<address>/...` |
+| `TOPIC_PREFIX` | `loralan` | Topics are `<prefix>/gateway<address>/...` |
 
 Radio and behaviour settings at the top of `main.py`:
 
