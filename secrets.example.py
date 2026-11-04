@@ -19,4 +19,4 @@ NTP_HOST = None                  # None = pool.ntp.org; a local NTP server works
 GATEWAY_ADDRESS = x # Change this to whatever address you would like ot give your gateway (1-255)
 
 # Topics become <TOPIC_PREFIX>/gateway<GATEWAY_ADDRESS>/rx, /status and /availability.
-TOPIC_PREFIX = "homemade/loralan"
+TOPIC_PREFIX = "loralan"
