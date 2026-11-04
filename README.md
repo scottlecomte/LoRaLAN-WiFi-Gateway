@@ -130,7 +130,7 @@ mpremote reset
 On boot it prints one banner line with the address, frequency and whether MQTT and `secrets.py` were found, then goes quiet. There is an 8-second window after reset to hit Ctrl-C for the REPL. Within about 10 seconds of joining Wi-Fi you should see `online` on the availability topic and the first status message:
 
 ```
-mosquitto_sub -h <broker> -t 'homemade/loralan/gateway5/#' -v
+mosquitto_sub -h <broker> -t 'loralan/gateway5/#' -v
 ```
 
 ## Enclosure

@@ -52,7 +52,7 @@ FORWARD_BROADCAST = False        # True: also publish to=255 frames (no ACK); th
                                  # forwards those too, so Node-RED dedupe drops one copy
 
 GW_ID = GATEWAY_ADDRESS
-TOPIC_PREFIX = _cfg("TOPIC_PREFIX", "homemade/loralan")
+TOPIC_PREFIX = _cfg("TOPIC_PREFIX", "loralan")
 TOPIC_BASE = TOPIC_PREFIX + "/gateway%d" % GW_ID
 TOPIC_RX = TOPIC_BASE + "/rx"            # node frames, not retained
 TOPIC_STATUS = TOPIC_BASE + "/status"    # retained JSON, every STATUS_EVERY_MS
